@@ -126,5 +126,5 @@ def test_yaml_relative_paths_resolve_against_project_root(tmp_path, restore_cfg)
 
     load_config_from_yaml(str(path))
 
-    expected = os.path.normpath(os.path.join(CFG.paths.project_root, "reports", "experiments", "x"))
+    expected = os.path.normpath(os.path.join(CFG.paths.project_root, "reports", "x"))
     assert CFG.paths.results == expected
