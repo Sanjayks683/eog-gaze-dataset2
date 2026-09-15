@@ -1,0 +1,298 @@
+{
+  "realtime": {
+    "model": "nested-selected (realtime)",
+    "reference": "window=60s features=engineered train=all (realtime)",
+    "n_subjects": 10,
+    "model_mean_deg": [
+      4.485,
+      3.809
+    ],
+    "reference_mean_deg": [
+      5.652,
+      4.568
+    ],
+    "model_ci95_deg": {
+      "h": [
+        3.791,
+        5.183
+      ],
+      "v": [
+        3.211,
+        4.482
+      ]
+    },
+    "improvement_deg": [
+      1.167,
+      0.759
+    ],
+    "improvement_ci95_deg": {
+      "h": [
+        0.505,
+        1.995
+      ],
+      "v": [
+        0.523,
+        1.011
+      ]
+    },
+    "subjects_improved": {
+      "h": 9,
+      "v": 10
+    },
+    "per_subject_deg": {
+      "S1": {
+        "model": [
+          3.32,
+          2.7366
+        ],
+        "reference": [
+          3.9884,
+          3.4802
+        ]
+      },
+      "S10": {
+        "model": [
+          4.0135,
+          4.4865
+        ],
+        "reference": [
+          5.817,
+          5.4662
+        ]
+      },
+      "S2": {
+        "model": [
+          2.9758,
+          2.9409
+        ],
+        "reference": [
+          3.9793,
+          3.5096
+        ]
+      },
+      "S3": {
+        "model": [
+          2.9685,
+          2.9881
+        ],
+        "reference": [
+          3.9763,
+          3.1684
+        ]
+      },
+      "S4": {
+        "model": [
+          5.141,
+          3.8221
+        ],
+        "reference": [
+          9.3113,
+          4.6684
+        ]
+      },
+      "S5": {
+        "model": [
+          5.6556,
+          5.9722
+        ],
+        "reference": [
+          4.9752,
+          7.1623
+        ]
+      },
+      "S6": {
+        "model": [
+          4.0555,
+          2.5338
+        ],
+        "reference": [
+          4.8787,
+          2.9138
+        ]
+      },
+      "S7": {
+        "model": [
+          5.6823,
+          3.906
+        ],
+        "reference": [
+          7.0942,
+          4.3521
+        ]
+      },
+      "S8": {
+        "model": [
+          4.8743,
+          3.7857
+        ],
+        "reference": [
+          6.2873,
+          5.3682
+        ]
+      },
+      "S9": {
+        "model": [
+          6.1664,
+          4.923
+        ],
+        "reference": [
+          6.2132,
+          5.5931
+        ]
+      }
+    },
+    "wilcoxon_p": {
+      "h": 0.009765625,
+      "v": 0.001953125,
+      "mean_hv": 0.001953125
+    }
+  },
+  "offline": {
+    "model": "nested-selected (offline)",
+    "reference": "window=60s features=engineered train=all (offline)",
+    "n_subjects": 10,
+    "model_mean_deg": [
+      3.129,
+      3.391
+    ],
+    "reference_mean_deg": [
+      3.764,
+      3.498
+    ],
+    "model_ci95_deg": {
+      "h": [
+        2.762,
+        3.509
+      ],
+      "v": [
+        2.932,
+        3.864
+      ]
+    },
+    "improvement_deg": [
+      0.635,
+      0.107
+    ],
+    "improvement_ci95_deg": {
+      "h": [
+        0.373,
+        0.892
+      ],
+      "v": [
+        -0.126,
+        0.314
+      ]
+    },
+    "subjects_improved": {
+      "h": 9,
+      "v": 7
+    },
+    "per_subject_deg": {
+      "S1": {
+        "model": [
+          2.2872,
+          2.3446
+        ],
+        "reference": [
+          2.4169,
+          2.4757
+        ]
+      },
+      "S10": {
+        "model": [
+          3.5115,
+          4.2326
+        ],
+        "reference": [
+          4.2195,
+          4.3974
+        ]
+      },
+      "S2": {
+        "model": [
+          2.1768,
+          3.0628
+        ],
+        "reference": [
+          2.8119,
+          3.1582
+        ]
+      },
+      "S3": {
+        "model": [
+          2.6775,
+          2.8432
+        ],
+        "reference": [
+          2.5728,
+          2.7497
+        ]
+      },
+      "S4": {
+        "model": [
+          3.4928,
+          3.609
+        ],
+        "reference": [
+          4.5455,
+          3.6351
+        ]
+      },
+      "S5": {
+        "model": [
+          3.2031,
+          4.5639
+        ],
+        "reference": [
+          3.8047,
+          3.8117
+        ]
+      },
+      "S6": {
+        "model": [
+          2.9168,
+          2.2998
+        ],
+        "reference": [
+          3.5168,
+          2.9003
+        ]
+      },
+      "S7": {
+        "model": [
+          4.307,
+          3.5095
+        ],
+        "reference": [
+          4.72,
+          3.4865
+        ]
+      },
+      "S8": {
+        "model": [
+          3.2783,
+          3.1584
+        ],
+        "reference": [
+          4.7031,
+          3.6786
+        ]
+      },
+      "S9": {
+        "model": [
+          3.4353,
+          4.2866
+        ],
+        "reference": [
+          4.3261,
+          4.6824
+        ]
+      }
+    },
+    "wilcoxon_p": {
+      "h": 0.00390625,
+      "v": 0.193359375,
+      "mean_hv": 0.009765625
+    }
+  }
+}

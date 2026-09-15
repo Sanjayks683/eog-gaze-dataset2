@@ -1,0 +1,7 @@
+method,rmse_h_deg,rmse_v_deg,mae_h_deg,mae_v_deg,fixation_mae_h_deg,fixation_mae_v_deg,notes
+Baseline: train-fold mean angle,14.07368641443997,7.996504258285817,12.104333877563477,6.850247383117676,12.55765272226276,7.053181654271482,Always predicts the training folds' mean H/V angle
+XGBoost,6.753125915103623,5.137177305459158,4.584054470062256,3.961793899536133,3.1308778129906343,3.2259610596296446,trained on fixation windows only
+Published: Barbara_2023_DKF_short,,,,,1.64,1.97,BSPC 86 (2023) Table 2: ±0.82 / ±0.34; within-subject; known start; 6.85% outliers excluded
+Published: Barbara_2023_DKF_long,,,,,5.23,6.59,BSPC 86 (2023) Table 3: ±2.00 / ±3.10; within-subject; known start; 5.83% outliers excluded
+Published: Barbara_2019_differencing_short,,,,,1.51,1.95,BSPC 86 (2023) Table 2 state of the art: ±0.55 / ±0.29; same protocol as DKF short
+Published: Barbara_2019_differencing_long,,,,,5.82,8.04,BSPC 86 (2023) Table 3 state of the art: ±2.70 / ±2.96; same protocol as DKF long
