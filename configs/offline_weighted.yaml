@@ -1,0 +1,36 @@
+# configs/offline_weighted.yaml
+# =============================
+# Offline pipeline, weighted training. Uses future samples, so it is not real-time:
+#   drift removal : centred robust mean over 60 s
+#   features      : engineered + context (disagreement with centred robust means over 30 s
+#                   and 120 s; the level 1, 2, 4 and 8 s earlier) + rolling-range features
+#                   (centred 60, 120 and 240 s; 10-90% and 5-95% quantiles)
+#   model         : XGBoost on all windows, non-fixation windows weighted 0.2
+#
+#   python main.py --config configs/offline_weighted.yaml --phase preprocess
+#   python main.py --config configs/offline_weighted.yaml --phase train
+#   python main.py --config configs/offline_weighted.yaml --phase compare
+
+data:
+  window_channel_mode: "all_eog"
+
+preprocessing:
+  drift_removal_method: "robust_mean"
+  baseline_window_sec: 60.0
+  baseline_causal: false
+  baseline_clip_mad: 3.0
+  context_baselines:
+    - ["robust_mean", 30.0]
+    - ["robust_mean", 120.0]
+  context_lags_sec: [1.0, 2.0, 4.0, 8.0]
+  context_range_windows_sec: [60.0, 120.0, 240.0]
+  context_range_quantiles: [[0.10, 0.90], [0.05, 0.95]]
+
+cv:
+  regression_train_windows: "weighted"
+  regression_nonfixation_weight: 0.2
+
+paths:
+  data_processed: "data/processed_offline"
+  results: "reports/offline_weighted"
+  reports_figures: "reports/offline_weighted/figures"

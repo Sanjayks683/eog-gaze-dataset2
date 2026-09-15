@@ -1,0 +1,39 @@
+# configs/realtime_weighted.yaml
+# ==============================
+# Real-time pipeline, weighted training: the best all-round model.
+#   drift removal : past-only robust line over the last 60 s (no future samples)
+#   windows       : 300 ms of H, V and the four monopolar channels, every 150 ms
+#   features      : engineered window features + context features (disagreement with a
+#                   robust mean over 30 s and 120 s and a robust line over 120 s; the
+#                   level 1, 2, 4 and 8 s earlier) + rolling-range features (past 60,
+#                   120 and 240 s; 10-90% and 5-95% quantiles)
+#   model         : XGBoost on all windows, non-fixation windows weighted 0.2
+#
+#   python main.py --config configs/realtime_weighted.yaml --phase preprocess
+#   python main.py --config configs/realtime_weighted.yaml --phase train
+#   python main.py --config configs/realtime_weighted.yaml --phase compare
+
+data:
+  window_channel_mode: "all_eog"
+
+preprocessing:
+  drift_removal_method: "robust_line"
+  baseline_window_sec: 60.0
+  baseline_causal: true
+  baseline_clip_mad: 3.0
+  context_baselines:
+    - ["robust_mean", 30.0]
+    - ["robust_mean", 120.0]
+    - ["robust_line", 120.0]
+  context_lags_sec: [1.0, 2.0, 4.0, 8.0]
+  context_range_windows_sec: [60.0, 120.0, 240.0]
+  context_range_quantiles: [[0.10, 0.90], [0.05, 0.95]]
+
+cv:
+  regression_train_windows: "weighted"
+  regression_nonfixation_weight: 0.2
+
+paths:
+  data_processed: "data/processed_realtime"
+  results: "reports/realtime_weighted"
+  reports_figures: "reports/realtime_weighted/figures"

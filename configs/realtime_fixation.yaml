@@ -1,0 +1,32 @@
+# configs/realtime_fixation.yaml
+# ==============================
+# Real-time pipeline (as configs/realtime_weighted.yaml), XGBoost trained on fixation
+# windows only: the lowest fixation MAE, at the cost of a higher all-window RMSE.
+# Uses the processed data of realtime_weighted.yaml, so run its preprocess phase first.
+#
+#   python main.py --config configs/realtime_fixation.yaml --phase train
+#   python main.py --config configs/realtime_fixation.yaml --phase compare
+
+data:
+  window_channel_mode: "all_eog"
+
+preprocessing:
+  drift_removal_method: "robust_line"
+  baseline_window_sec: 60.0
+  baseline_causal: true
+  baseline_clip_mad: 3.0
+  context_baselines:
+    - ["robust_mean", 30.0]
+    - ["robust_mean", 120.0]
+    - ["robust_line", 120.0]
+  context_lags_sec: [1.0, 2.0, 4.0, 8.0]
+  context_range_windows_sec: [60.0, 120.0, 240.0]
+  context_range_quantiles: [[0.10, 0.90], [0.05, 0.95]]
+
+cv:
+  regression_train_windows: "fixation"
+
+paths:
+  data_processed: "data/processed_realtime"
+  results: "reports/realtime_fixation"
+  reports_figures: "reports/realtime_fixation/figures"

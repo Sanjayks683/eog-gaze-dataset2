@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# EyeCon Dataset 2 (download per README) and generated arrays
+data/raw/
+data/processed*/
